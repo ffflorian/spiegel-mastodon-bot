@@ -28,7 +28,7 @@ def read_feed(url, interval)
                 puts "[SPIEGEL RSS] New article: #{item.title}"
                 # Substitute title for description in case none is provided
                 item.description.empty? ? description = item.title : description = item.description
-                description = description.slice(0, 140) + "..." if description.length > 140
+                description = description.slice(0, 200) + "..." if description.length > 200
                 puts "[MASTODON] Posting article"
                 post(description, item.link)
                 puts "\n"
